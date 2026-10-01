@@ -2,7 +2,7 @@
 
 **Título provisório:** Customização Arquitetural de Redes Neurais Convolucionais para Detecção Forense de Adulteração em Imagens de Documentos: Uma Revisão Sistemática da Literatura
 
-**Versão:** 1.0
+**Versão:** 1.1
 **Status:** busca, fases 1 a 4, extração, síntese S1 a S4 e análise de sensibilidade concluídas; desvios sancionados pelo orientador em 2026-09-30; relatório final em redação
 
 > **Nota sobre este documento.** Descreve o método e registra a execução. Toda diferença entre o método aprovado e o executado está na Tabela 6, com data e justificativa. Redigido em português por ser documento de trabalho.
@@ -25,8 +25,8 @@ Nove decisões de desenho (D) orientam o método e ficam registradas em conjunto
 | D4 | Janela de 2020 a 2026 | Seção 4.5 |
 | D5 | Triagem, extração e síntese conduzidas pelo autor com apoio de ferramenta de inteligência artificial, sem calibração interavaliadores humana | Seção 10.2; ameaças V2 e V7 |
 | D6 | Estudos secundários fora da contagem de primários, retidos para snowballing | EC4; fase 4 |
-| D7 | ScienceDirect particionado em quatro consultas. **Aplicável apenas se D8 for revertida** | Apêndice A.1 |
-| D8 | Busca executada por interface de programação de aplicações (API) pública, o OpenAlex, em vez das interfaces das três bases declaradas | Seção 4.1.1; ameaça V1 |
+| D7 | ScienceDirect particionado em quatro consultas. **Aplicável apenas a uma replicação nas bases comerciais** | Apêndice A.1 |
+| D8 | Busca executada exclusivamente no OpenAlex, por interface de programação de aplicações (API) pública | Seção 4.1; ameaça V1 |
 | D9 | Síntese estratificada em duas camadas: mapeamento amplo e revisão focada | Seção 3.1; ameaça V9 |
 
 A D1 é a de maior consequência: a revisão foi desenhada de modo que possa derrubar a afirmação de originalidade do estudo primário. O compromisso assumido está na nota ao fim da seção 2.1 e na ameaça V4.
@@ -97,13 +97,13 @@ A busca recupera mais de mil registros, e a triagem por resumo deixaria várias 
 | Extração | formulário reduzido (Tabela 3a) | formulário completo (Tabela 3b) |
 | Produto | taxonomia, tabelas de frequência, gráfico de bolhas | matriz de combinação e interação, quadro de evidência |
 
-**Critério de promoção à camada de profundidade.** O estudo combina customização no domínio da **frequência** com customização no domínio da **borda**, que é exatamente o par que o estudo primário associado combina (ramo de transformada discreta do cosseno mais módulos de borda). A promoção é por **sinal positivo**, não por impossibilidade de exclusão.
+**Critério de promoção à camada de profundidade.** O estudo combina customização no domínio da **frequência** com customização no domínio da **borda**, que é exatamente o par que o estudo primário associado combina (ramo de transformada discreta do cosseno mais módulos de borda). A promoção é por **sinal positivo**, não por impossibilidade de exclusão. O vocabulário de detecção definido abaixo **não é critério de elegibilidade**: todo estudo que satisfaz os critérios de inclusão e de exclusão integra a revisão, na camada de mapeamento. O vocabulário é o mecanismo operacional que **prioriza**, entre os estudos elegíveis, quais são lidos em profundidade.
 
 O par é exato por alinhamento com a RQ1.3: a pergunta que a camada de profundidade existe para responder é sobre a combinação que o estudo primário propõe. Estudos que combinam frequência com ruído, sem borda, testam outra combinação e permanecem na camada de mapeamento, onde respondem a RQ1.1 e RQ1.2.
 
 **Vocabulário de detecção de domínio.** A atribuição de camada é regra mecânica sobre título e resumo. **Frequência:** `frequenc`, `DCT`, `discrete cosine`, `wavelet`, `fourier`, `spectral`, `spectrum`, `high-frequency`. **Borda:** `edge` acompanhado de termo de módulo (`edge attention`, `edge-aware`, `edge-guided` e congêneres), `boundary`, `contour`, `sobel`, `canny`, `laplacian` ou `edge loss`. **Ruído:** `noise`, `SRM`, `PRNU`, `noiseprint`, `constrained conv`, `noise residual`. Dois termos frequentes ficam deliberadamente de fora: `gradient`, que na área designa o gradiente descendente e não representação de borda, e `residual` isolado, que designa a conexão residual do ResNet e não domínio de ruído.
 
-**Custo declarado do vocabulário fechado.** A lista de borda é fechada e, por isso, introduz falso negativo: dois a três estudos que combinam frequência e borda descrevem a borda por formulação fora da lista (por exemplo, *edge progressive refinement*) e não são promovidos. Uma lista aberta, sem `gradient` e `residual`, preservaria esses estudos, mas elevaria a camada de profundidade de 35 para 56. Adotou-se a lista fechada, trocando falso positivo por falso negativo; os três precedentes de ablação cruzada identificados na síntese (S3) são promovidos sob as duas listas.
+**Custo declarado do vocabulário fechado e verificação.** A lista de borda é fechada e, por isso, introduz falso negativo. Uma lista aberta, com qualquer ocorrência de `edge`, `boundary`, `contour`, `sobel`, `canny` ou `laplacian` (sem `gradient` e `residual`), elevaria a camada de profundidade de 35 para 56 estudos no corpus primário e acrescentaria 2 do snowballing. Adotou-se a lista fechada, trocando falso positivo por falso negativo, e o custo foi medido: os 23 estudos que a lista aberta acrescentaria foram classificados por leitura do resumo. A maioria é falso positivo léxico (*edge devices*, *cutting-edge*, contorno da região localizada); dois a três combinam de fato frequência e borda, e nenhum deles é do domínio documental. O único estudo documental do grupo combina frequência e ruído. Os três precedentes de ablação cruzada identificados na síntese (S3) são promovidos sob as duas listas.
 
 **A ablação não é critério de triagem.** Poderia parecer natural exigir, para promoção, que o estudo anuncie ablação. A medição desaconselha: **apenas 6% dos resumos do corpus (44 de 782) mencionam ablação**. Filtrar por ela na triagem selecionaria convenção de escrita de resumo, não rigor metodológico, e descartaria sistematicamente estudos que fizeram ablação sem anunciá-la. A ablação entra como **campo de extração** (Tabela 3b), preenchido a partir do texto completo, que é onde a informação existe de fato.
 
@@ -115,27 +115,15 @@ O par é exato por alinhamento com a RQ1.3: a pergunta que a camada de profundid
 
 ## 4. Estratégia de busca
 
-### 4.1 Bases de dados declaradas
+### 4.1 Fonte de informação
 
-| Base | Justificativa |
-|---|---|
-| IEEE Xplore Digital Library | Principal veículo de forense de imagem e visão computacional |
-| ACM Digital Library | Cobertura de multimídia e segurança aplicada |
-| ScienceDirect (Elsevier) | Cobre periódicos onde estão referências centrais do campo |
+A busca bibliográfica é realizada exclusivamente no **OpenAlex**, índice bibliográfico aberto e multidisciplinar, com metadados estruturados, que indexa publicações de diversos veículos também presentes nas bases de referência da área, incluindo IEEE Xplore, ACM Digital Library e ScienceDirect. A consulta é submetida por interface de programação de aplicações (API) pública, sobre os campos de título e resumo.
 
-### 4.1.1 Desvio: execução por interface programática (D8)
+**Justificativa.** IEEE Xplore e ScienceDirect exigem chave de API com vinculação institucional, a ACM Digital Library não expõe API pública, e a execução pelas interfaces web depende de sessão autenticada. O OpenAlex é, além disso, reprodutível: a consulta é um endereço, e o mesmo endereço na mesma data devolve o mesmo conjunto, ao contrário de resultados de interface, que variam com ranqueamento e versão da plataforma. Por ser aberto, permite que qualquer leitor reexecute a consulta sem credencial institucional. A cobertura multidisciplinar permite recuperar publicações de diferentes veículos em uma única fonte, e o filtro por tipo de publicação restringe o universo a artigos de periódico, revisões e artigos de conferência. O filtro não garante, por si, revisão por pares: a condição de arbitragem exigida por IC4 é verificada na seleção, com EC5 aplicado na triagem e na leitura de texto completo sempre que o veículo ou o documento indicar material não arbitrado.
 
-Nenhuma das três oferece acesso programático sem credencial: IEEE Xplore e ScienceDirect exigem chave de API com vinculação institucional, e a ACM Digital Library não expõe API pública. A execução pelas interfaces web depende de sessão autenticada.
+**Limitação.** O corpus não é o mesmo que as bases comerciais produziriam, e estudos indexados apenas nelas podem ficar de fora. A indexação de resumos é incompleta: Qian et al. (2020), do conjunto de validação, não tem resumo indexado e é recuperado apenas por correspondência de título. Ver ameaça V1.
 
-Para viabilizar a execução automatizada e reprodutível, a busca foi conduzida sobre o **OpenAlex**, índice bibliográfico aberto que cobre os veículos das três bases declaradas.
-
-**A favor.** Mais reprodutível que interface web: a consulta é um endereço, e o mesmo endereço na mesma data devolve o mesmo conjunto, ao contrário de resultados de interface, que variam com ranqueamento e versão da plataforma. A cobertura é mais ampla que a soma das três, e o filtro por tipo de publicação distingue preprint de material arbitrado, operacionalizando IC4 na própria consulta.
-
-**Contra.** A cobertura não é idêntica à das três bases, de modo que o corpus **não é o mesmo** que a busca aprovada produziria. A indexação de resumos é incompleta: Qian et al. (2020), do conjunto de validação, não tem resumo indexado e foi recuperado apenas por correspondência de título. Isso agrava a ameaça V1.
-
-**Mitigação.** O snowballing da fase 4 é promovido de desejável a **obrigatório**, por ser o mecanismo que recupera estudos perdidos por indexação deficiente. O conjunto quasi-gold funciona como verificação de piso da cobertura.
-
-**Estado.** Desvio material, registrado na Tabela 6 e sancionado pelo orientador. Revertida a decisão, valem a seção 4.1 e o Apêndice A como escritos, e a busca exige execução manual autenticada.
+**Mitigação.** O snowballing da fase 4 é **obrigatório**, por ser o mecanismo que recupera estudos perdidos por indexação deficiente. O conjunto quasi-gold funciona como verificação de piso da cobertura. Para uma eventual replicação nas bases comerciais, as strings adaptadas estão no Apêndice A.
 
 **Repositórios de preprint não são consultados**, por coerência com IC4 e EC5. A consequência sobre o estudo primário está na seção 10.1.
 
@@ -231,7 +219,7 @@ Tentou-se completar os resumos ausentes pelo Crossref: em amostra de 25 registro
 
 ### 4.5 Janela temporal e filtro de tipo
 
-**Janela:** janeiro de 2020 a dezembro de 2026. O limite inferior preserva os trabalhos seminais que fundamentam as técnicas comparadas, entre eles Qian et al. (2020), e mantém o volume de triagem administrável. Referências clássicas anteriores (por exemplo, a formulação original da transformada discreta do cosseno por Ahmed et al., 1974) permanecem citáveis como fundamentação do estudo primário, mas não integram o corpus.
+**Janela:** publicações a partir de janeiro de 2020; o filtro da consulta vai até dezembro de 2026, de modo que a cobertura efetiva termina na data da busca (23 de setembro de 2026). O limite inferior preserva os trabalhos seminais que fundamentam as técnicas comparadas, entre eles Qian et al. (2020), e mantém o volume de triagem administrável. Referências clássicas anteriores (por exemplo, a formulação original da transformada discreta do cosseno por Ahmed et al., 1974) permanecem citáveis como fundamentação do estudo primário, mas não integram o corpus.
 
 **Tipo de conteúdo:** artigos de periódico, artigos de revisão e artigos de anais de conferência (seção 4.3.1).
 
@@ -243,7 +231,7 @@ Tentou-se completar os resumos ausentes pelo Crossref: em amostra de 25 registro
 
 | ID | Critério |
 |---|---|
-| **IC1** | Estudos publicados entre janeiro de 2020 e dezembro de 2026 |
+| **IC1** | Estudos publicados a partir de janeiro de 2020 (cobertura efetiva até a data da busca, 23 de setembro de 2026) |
 | **IC2** | Estudos que propõem, modificam ou avaliam arquiteturas de redes neurais para detecção de adulteração, falsificação ou geração sintética em imagens |
 | **IC3** | Estudos que descrevem explicitamente a customização arquitetural em nível suficiente para extração |
 | **IC4** | Estudos submetidos a revisão por pares, publicados em periódico ou em anais de conferência |
@@ -270,7 +258,7 @@ Tentou-se completar os resumos ausentes pelo Crossref: em amostra de 25 registro
 
 ```mermaid
 flowchart TD
-    A["Busca<br/>OpenAlex (D8) · seção 4.1.1<br/>string da seção 4.3 · n = 1.154"] --> B["Filtro de tipo e janela<br/>arbitrado · 2020-2026"]
+    A["Busca<br/>OpenAlex (D8) · seção 4.1<br/>string da seção 4.3 · n = 1.154"] --> B["Filtro de tipo e janela<br/>artigo, revisão, conferência · 2020-2026"]
     B --> C["Deduplicação<br/>DOI normalizado · título idêntico · similaridade ≥ 95% + mesmo ano"]
     C --> D["FASE 1 · Triagem por título<br/>IC/EC · na dúvida, inclui<br/>1.154 → 919"]
     D -->|235 excluídos, com código EC| X1[" "]
@@ -297,11 +285,11 @@ Dois julgamentos por registro: aplicação do EC2, e atribuição à camada de m
 Aplicada **somente à camada de profundidade**. Os estudos são lidos integralmente e avaliados pela lista da seção 7. A avaliação de qualidade caracteriza rigor e alimenta a análise de sensibilidade, **mas não elimina estudos**. Exclusões nesta fase decorrem apenas de critérios verificáveis no texto completo (tipicamente EC2 e EC6).
 
 ### Fase 4: Snowballing
-**Obrigatório** (ver 4.1.1). Para trás (listas de referências) e para frente (citantes) sobre os estudos da camada de profundidade, conforme Wohlin (2014). Os estudos secundários retidos por EC4 servem de ponto de partida adicional. Os nomes próprios omitidos da string primária são usados aqui como consultas de citação. Novos estudos passam pelas fases 1 a 3.
+**Obrigatório** (ver 4.1). Para trás (listas de referências) e para frente (citantes) sobre os estudos da camada de profundidade, conforme Wohlin (2014). Os estudos secundários retidos por EC4 servem de ponto de partida adicional. Os nomes próprios omitidos da string primária são usados aqui como consultas de citação. Novos estudos passam pelas fases 1 a 3.
 
 ### Registro de resultados
 
-**Tabela 1a. Funil de seleção — corpus primário**
+**Tabela 1a. Funil de seleção, corpus primário**
 
 | Etapa | n |
 |---|---|
@@ -316,7 +304,7 @@ Aplicada **somente à camada de profundidade**. Os estudos são lidos integralme
 | Fase 3, texto completo: incluídos (extraídos) | 17 |
 | Fase 3, texto completo: excluídos (EC6 14, EC2 4) | 18 |
 
-**Tabela 1b. Funil de seleção — snowballing (fase 4)**
+**Tabela 1b. Funil de seleção, snowballing (fase 4)**
 
 | Etapa | n |
 |---|---|
@@ -338,7 +326,7 @@ Aplicada **somente à camada de profundidade**. Os estudos são lidos integralme
 | Texto completo extraído, total | **17** |
 | Texto completo excluído na fase 3, total | 18 |
 
-**Tabela 2. Distribuição dos critérios de exclusão — corpus primário**
+**Tabela 2. Distribuição dos critérios de exclusão, corpus primário**
 
 | Critério | Fase 1 | Fase 2 | Fase 3 | Total | Descrição |
 |---|---|---|---|---|---|
@@ -353,7 +341,7 @@ Aplicada **somente à camada de profundidade**. Os estudos são lidos integralme
 
 **Exclusões da fase 3 decididas por leitura.** Quatro das 18 exclusões desta fase são por EC2, identificado apenas no texto completo, e não pelo resumo: três métodos clássicos sem rede neural e um ensemble de modelos prontos. As decisões de exclusão tomadas pelo autor após leitura estão registradas em `dados/_SINALIZACOES_FASE3.md`, com o critério que motivou cada uma.
 
-**Tabela 2b. Distribuição dos critérios de exclusão — snowballing**
+**Tabela 2b. Distribuição dos critérios de exclusão, snowballing**
 
 | Critério | Fase 1 | Fase 2 | Fase 3 | Total | Descrição |
 |---|---|---|---|---|---|
@@ -389,7 +377,7 @@ Aplicada à camada de profundidade. Pontuação: Sim = 1, Parcialmente = 0,5, N�
 | **QA5** | Os achados são validados com baseline de comparação, estudo de ablação, teste estatístico ou avaliação entre conjuntos de dados? |
 | **QA6** | O estudo contribui com evidência aplicável à comparação entre estratégias de customização? |
 
-**Finalidade.** Caracteriza o rigor de cada estudo e sustenta a análise de sensibilidade. **Não exclui.** Todos os estudos que passam pelos critérios são retidos independentemente do escore, o que permite reportar o perfil de qualidade da base de evidência.
+**Finalidade.** Avaliação descritiva: caracteriza o rigor e a reprodutibilidade de cada estudo e sustenta a análise de sensibilidade, sem atestar a qualidade da literatura. É complementada, na síntese, por indicadores específicos do desenho que a RQ1.3 exige (quatro células, cruzamento em mais de um conjunto de dados, dispersão entre execuções, teste estatístico e custo). **Não exclui.** Todos os estudos que passam pelos critérios são retidos independentemente do escore, o que permite reportar o perfil de qualidade da base de evidência.
 
 ---
 
@@ -401,7 +389,7 @@ Preenchido a partir de metadados e resumo. Campo não disponível recebe `nao_in
 
 | Campo | Atende |
 |---|---|
-| Identificador, dados bibliográficos, tipo de veículo | — |
+| Identificador, dados bibliográficos, tipo de veículo | Todas |
 | Domínio de aplicação (documento, face, imagem natural, misto) | RQ1.1 |
 | Estratégia de customização (categoria da taxonomia) | RQ1.1 |
 | Ponto de intervenção | RQ1.1 |
@@ -428,11 +416,11 @@ Preenchido a partir do texto completo. Inclui todos os campos da Tabela 3a, mais
 | Avaliação entre conjuntos de dados; queda reportada | RQ1.4 |
 | Custo computacional (parâmetros, operações, latência, hardware) | RQ1.4 |
 | Estudo de ablação; escopo | RQ1.4 |
-| Limitações declaradas, escore QA | — |
+| Limitações declaradas, escore QA | Todas |
 
-**`Avalia interação` é o campo que responde a RQ1.3** e o que decide a afirmação de originalidade do estudo primário. Vale `sim` **apenas** com ablação cruzada sobre a **presença ou ausência de dois domínios de representação distintos**, cada um isolado como operador próprio, sobre um baseline: o estudo mede nenhum dos dois, A, B e A+B. Vale `parcial` quando falta uma dessas células ou quando um dos domínios nunca é isolado. Vale `nao` quando não há cruzamento. Não bastam: reportar A e B em experimentos separados, variar só a multiplicidade de componentes já presentes, ou cruzar um domínio com um operador que não é domínio de representação (por exemplo, um módulo de fusão multimodal). O campo `par cruzado` registra o que a ablação realmente cruza.
+**`Avalia interação` é o campo que responde a RQ1.3** e o que decide a afirmação de originalidade do estudo primário. Vale `sim` **apenas** com ablação cruzada sobre a **presença ou ausência de dois domínios de representação distintos**, cada um isolado como operador próprio, sobre um baseline: o estudo mede nenhum dos dois, A, B e A+B. Vale `parcial` quando falta uma dessas células ou quando um dos domínios nunca é isolado. Vale `nao` quando não há cruzamento. Não bastam: reportar A e B em experimentos separados, variar só a multiplicidade de componentes já presentes, ou cruzar um domínio com um operador que não é domínio de representação (por exemplo, um módulo de fusão multimodal). O campo `par cruzado` registra o que a ablação realmente cruza. Medir as quatro células permite **estimar** a interação, mas não **demonstra sinergia**, o que exigiria repetição e teste estatístico sobre o termo de interação; a síntese distingue combinação, avaliação de interação e sinergia demonstrada.
 
-**Procedimento.** Extração pelo autor a partir do texto completo, com apoio de ferramenta de IA e citação literal obrigatória nos quatro campos de julgamento (`ponto_intervencao`, `operador_fusao`, `avalia_interacao`, `qa4`). Cada estudo é extraído duas vezes, de forma independente, para medir a estabilidade dos campos de julgamento (seção 10.2).
+**Procedimento.** Extração pelo autor a partir do texto completo, com apoio de ferramenta de IA e citação literal obrigatória nos quatro campos de julgamento (`ponto_intervencao`, `operador_fusao`, `avalia_interacao`, `qa4`). Cada estudo é extraído em duas passagens independentes, ambas conduzidas pelo autor com apoio da mesma ferramenta, para medir a estabilidade dos campos de julgamento (seção 10.2).
 
 ---
 
@@ -478,7 +466,7 @@ Triagem, extração e síntese foram conduzidas pelo autor com apoio de ferramen
 | Fase 1, triagem por título | Autor, título a título, com apoio de IA; código EC registrado em toda exclusão | Registro auditável por identificador |
 | Fase 2, atribuição de camada | Regra mecânica por domínio de representação (seção 3.1), em `rsl_v2_pipeline.py` | Determinística; auditável pelo campo `dominios_detectados` |
 | Fase 2, EC2 | Autor, por leitura dos resumos dos 169 candidatos de fronteira, com apoio de IA | Registro auditável, com motivo por estudo |
-| Fase 3, leitura, QA e extração | Autor, com extração assistida por IA a partir do texto completo; citação literal obrigatória nos quatro campos de julgamento | Segunda extração independente e cega (Kappa de Cohen); leitura integral pelo autor dos estudos `sim` |
+| Fase 3, leitura, QA e extração | Autor, por leitura do texto completo, com apoio de IA no preenchimento do formulário; citação literal obrigatória nos quatro campos de julgamento | Segunda extração independente, sem acesso à primeira (κ de Cohen entre as duas); leitura integral pelo autor dos estudos `sim` |
 | Fase 4, snowballing | Autor, com apoio de IA, sob os mesmos critérios do corpus primário | Registro auditável por identificador |
 | Síntese | Autor, com apoio de IA no cálculo das tabelas | Recalculável a partir das planilhas |
 
@@ -486,7 +474,7 @@ Triagem, extração e síntese foram conduzidas pelo autor com apoio de ferramen
 
 **Fase 3.** As exclusões por critério que só o texto completo revela (EC2 e EC6) estão registradas, com o motivo de cada uma, em `dados/_SINALIZACOES_FASE3.md`. O corpus de profundidade é de **17 estudos extraídos** (`planilhas/v2/extracao.csv`). Cada extração traz uma **citação literal do texto** para os quatro campos de julgamento, o que torna a decisão verificável sem reler o artigo inteiro.
 
-**Extração dupla e concordância.** Os 19 estudos que chegaram à extração foram extraídos duas vezes, de forma independente e cega: a segunda extração, com o mesmo formulário e a mesma exigência de citação literal, não teve acesso à primeira. Sobre `avalia_interacao`, a concordância foi de 15 em 19 estudos (79%), com Kappa de Cohen de **0,65**, "substancial" na escala de Landis e Koch; sobre os 17 retidos, 14 em 17 (82%), Kappa **0,70**. As divergências não foram sobre os dados: as duas extrações concordaram sobre tabelas e números e divergiram sobre a aplicação da regra, resolvida pelo autor com a definição da seção 8. A extração dupla também levou à exclusão de dois estudos por EC2: um ensemble de redes cujas modificações internas não são descritas, com contribuição apenas na regra de fusão das saídas, e um pipeline sem rede neural em nenhuma etapa.
+**Duas extrações independentes e concordância.** Os 19 estudos que chegaram à extração foram extraídos em duas passagens independentes, ambas conduzidas pelo autor com apoio da mesma ferramenta de IA: a segunda, com o mesmo formulário e a mesma exigência de citação literal, não teve acesso à primeira. Sobre `avalia_interacao`, a concordância foi de 15 em 19 estudos (79%), com κ de Cohen de 0,65, faixa que Landis e Koch classificam como substancial; sobre os 17 retidos, 14 em 17 (82%), κ de 0,70. **O κ mede a concordância entre as duas extrações, e não entre dois revisores humanos independentes**: ambas foram apoiadas pela mesma ferramenta e podem compartilhar erros. As divergências não foram sobre os dados: as duas extrações concordaram sobre tabelas e números e divergiram sobre a aplicação da regra, resolvida pelo autor com a definição da seção 8. A segunda extração também levou à exclusão de dois estudos por EC2: um ensemble de redes cujas modificações internas não são descritas, com contribuição apenas na regra de fusão das saídas, e um pipeline sem rede neural em nenhuma etapa.
 
 **Limites.** Nenhum estudo é citado no relatório final sem que o autor tenha lido, no mínimo, a evidência literal registrada para cada campo de julgamento e conferido contra o PDF os casos incertos. Os estudos com `avalia_interacao` igual a `sim`, que sustentam a análise de lacuna (RQ1.3), foram lidos integralmente pelo autor. Extração a partir do resumo, sem o texto completo, invalida os campos de RQ1.3 e RQ1.4 e não é permitida. A responsabilidade pelo conteúdo é integralmente do autor.
 
@@ -496,7 +484,7 @@ Triagem, extração e síntese foram conduzidas pelo autor com apoio de ferramen
 
 ## 11. Ameaças à validade
 
-**V1. Completude da busca.** A interseção entre forense de imagem, customização arquitetural e domínio de frequência é terminologicamente fragmentada. *Mitigação:* nove variantes no bloco de tarefa e sete no de customização; validação contra conjunto quasi-gold; análise de sensibilidade da string (seção 4.3.2); snowballing obrigatório.
+**V1. Completude da busca.** A interseção entre forense de imagem, customização arquitetural e domínio de frequência é terminologicamente fragmentada, e a busca usa uma única fonte, o OpenAlex: estudos indexados apenas em outras bases podem ficar de fora, e nenhuma afirmação da revisão deve ser lida como exaustiva. *Mitigação:* nove variantes no bloco de tarefa e sete no de customização; validação contra conjunto quasi-gold; análise de sensibilidade da string (seção 4.3.2); snowballing obrigatório.
 
 **V2. Viés de seleção.** Triagem por um único avaliador, sem segundo julgamento humano independente. *Mitigação:* "na dúvida, inclui" na fase 1; código EC obrigatório em toda exclusão; EC2 decidido por leitura dos candidatos de fronteira. Ver V7.
 
@@ -508,7 +496,7 @@ Triagem, extração e síntese foram conduzidas pelo autor com apoio de ferramen
 
 **V6. Literatura cinzenta e prática industrial.** Detectores em produção raramente são publicados. A revisão retrata o estado da arte acadêmico, não o da prática. *Mitigação:* declarado como limitação de escopo.
 
-**V7. Uso de ferramenta automatizada na triagem e na extração.** O erro de uma ferramenta automatizada é **sistemático, não aleatório**: um critério mal interpretado é aplicado do mesmo modo a todo o corpus, ao contrário do erro humano por fadiga, disperso e parcialmente autocorrigível. Os campos mais expostos são os de julgamento da fase 3, que sustentam RQ1.3 e RQ1.4 e, portanto, a afirmação de originalidade do estudo primário. Não há Kappa entre avaliadores humanos. *Mitigação:* código EC em toda exclusão; citação literal do texto em cada campo de julgamento; extração dupla, independente e cega da fase 3 (Kappa 0,65 sobre `avalia_interacao`), com a ressalva de que duas extrações feitas com o mesmo tipo de ferramenta podem errar de modo correlacionado; leitura integral pelo autor dos estudos que sustentam a análise de lacuna.
+**V7. Apoio de ferramenta de IA na triagem e na extração.** O erro introduzido por uma ferramenta de IA é **sistemático, não aleatório**: um critério mal interpretado é aplicado do mesmo modo a todo o corpus, ao contrário do erro humano por fadiga, disperso e parcialmente autocorrigível. Os campos mais expostos são os de julgamento da fase 3, que sustentam RQ1.3 e RQ1.4 e, portanto, a afirmação de originalidade do estudo primário. Não há Kappa entre avaliadores humanos. *Mitigação:* código EC em toda exclusão; citação literal do texto em cada campo de julgamento; segunda extração independente da fase 3 (κ = 0,65 sobre `avalia_interacao`), com a ressalva de que as duas extrações foram apoiadas pela mesma ferramenta, podem errar de modo correlacionado e não equivalem a dois revisores humanos independentes; leitura integral pelo autor dos estudos que sustentam a análise de lacuna.
 
 **V8. Cobertura de metadados e de texto completo.** O índice não tem resumo para 28,9% do corpus e não dá acesso aberto ao texto completo de 62,8%. A primeira lacuna degrada a fase 2; a segunda cria dependência de acesso institucional para a fase 3. São propriedades do índice, não do campo. *Mitigação:* registros sem resumo entram no mapeamento em vez de serem excluídos; snowballing obrigatório; obtenção dos textos fechados declarada como responsabilidade do autor.
 
@@ -529,15 +517,15 @@ Triagem, extração e síntese foram conduzidas pelo autor com apoio de ferramen
 
 **Autenticação.** As consultas usam chave de interface de programação de aplicações (API) do OpenAlex. Sem chave, as requisições são contabilizadas contra um orçamento diário gratuito compartilhado por endereço de rede, que se esgota e só é restabelecido à meia-noite em tempo universal coordenado (UTC). A chave não altera resultado de consulta, apenas a disponibilidade de execução.
 
-Não executadas, por indisponibilidade de acesso programático (4.1.1): IEEE Xplore, ACM Digital Library, ScienceDirect. As strings adaptadas permanecem no Apêndice A, aplicáveis se D8 for revertida. O endereço literalmente submetido e a data estão em `dados/execucao_busca.json`, que é o registro reprodutível.
+Fonte única: OpenAlex (seção 4.1). As strings adaptadas às bases comerciais estão no Apêndice A, para uma eventual replicação. O endereço literalmente submetido e a data estão em `dados/execucao_busca.json`, que é o registro reprodutível.
 
 **Tabela 5. Validação contra o conjunto quasi-gold**
 
 | # | Estudo | Recuperado | Observação |
 |---|---|---|---|
-| V1 | Bae et al. (2025) | sim | — |
-| V2 | Guo et al. (2023) | sim | — |
-| V3 | Qu et al. (2023) | sim | — |
+| V1 | Bae et al. (2025) | sim | |
+| V2 | Guo et al. (2023) | sim | |
+| V3 | Qu et al. (2023) | sim | |
 | V4 | Qian et al. (2020) | sim | sem resumo indexado; recuperado por título |
 | | **Total** | **4/4** | regra satisfeita |
 
@@ -553,7 +541,7 @@ As variantes mais restritivas da seção 4.3.2 também recuperam os quatro: a re
 | 4 | 2026-09-16 | 4.5, correção C3 | Tipo passa a admitir anais de conferência | A omissão eliminava CVPR, ECCV e ICCV, 42% do corpus | Sim (2026-09-30) |
 | 5 | 2026-09-16 | 4.4 | Conjunto quasi-gold de seis para quatro estudos | Raza et al. (2026) e Guevara et al. (2026) são secundários e sairiam por EC4 | Sim (2026-09-30) |
 | 6 | 2026-09-16 | D5, seção 10.2 | Calibração com Kappa entre dois avaliadores humanos substituída por um avaliador com apoio de ferramenta de IA | Indisponibilidade de segundo avaliador humano para o volume. Parcialmente compensado na fase 3 pelo desvio 18 | Sim (2026-09-30), material |
-| 7 | 2026-09-16 | D8, seção 4.1.1 | Busca sobre o OpenAlex em vez das três bases | Nenhuma oferece acesso programático sem credencial institucional | Sim (2026-09-30), material |
+| 7 | 2026-09-16 | D8, seção 4.1 | Busca sobre o OpenAlex em vez das três bases | Nenhuma oferece acesso programático sem credencial institucional | Sim (2026-09-30), material |
 | 8 | 2026-09-16 | Seção 6, deduplicação | Limiar de similaridade de 85% para 95% mais mesmo ano | Títulos formulaicos: 12 falsos positivos em 71 pares | Sim (2026-09-30) |
 | 9 | 2026-09-16 | 4.4.1 | Registro sem resumo avançava para a fase 3 | Substituído pelo desvio 10 | Revogado |
 | 10 | 2026-09-16 | D9, seções 3.1 e 8 | Síntese estratificada em mapeamento e profundidade | A fase 2 projetava ~840 estudos para leitura completa, incompatível com cronograma e acesso | Sim (2026-09-30), material |
@@ -564,7 +552,7 @@ As variantes mais restritivas da seção 4.3.2 também recuperam os quatro: a re
 | 15 | 2026-09-23 | Seções 4.3 e 4.3.2 | Correção **C4**: poda de quatro termos do bloco de customização (`"attention module"`, `"plug-in module"`, `"feature fusion"`, `"backbone modification"`). Corpus de 1.423 para 1.154 | Observação do orientador de que a string recuperava volume excessivo. Análise de sensibilidade com onze variantes mostrou que os quatro termos não recuperavam nenhum registro único: a poda é redução sem perda de evidência | Sim (2026-09-30), material |
 | 16 | 2026-09-23 | Seções 3.1 e 4.3.2 | Correção **C5**: vocabulário de detecção de domínio corrigido. `gradient` (otimizador) saiu do domínio de borda e `residual` isolado (conexão residual) saiu do domínio de ruído; a lista de borda passou a ser fechada | Falso positivo sistemático: 34 dos 69 estudos promovidos pelo par frequência+borda sob o vocabulário antigo eram casamento léxico espúrio. Custo declarado: a lista fechada introduz falso negativo em 2 a 3 estudos (seção 3.1) | Sim (2026-09-30), material |
 | 17 | 2026-09-23 | Seção 3.1 | Promoção à camada de profundidade passa a exigir o par **exato** frequência+borda, em vez de frequência com borda **ou** ruído. Camada de 142 para 35 estudos, e a carga de leitura completa de 81 para 19 | Alinhamento com a RQ1.3, que pergunta sobre a combinação que o estudo primário propõe. Os três precedentes de ablação cruzada frequência+borda estão todos na camada de profundidade; estudos de frequência+ruído permanecem no mapeamento | Sim (2026-09-30), material |
-| 18 | 2026-09-30 | Seção 10.2, S3, S4 | Extração dupla, independente e cega, dos 19 estudos de profundidade; regra de `avalia_interacao` revisada (ablação sobre presença ou ausência de dois domínios distintos) e campo `par_cruzado` adicionado; S1374 (ensemble de modelos prontos) e S0913 (pipeline sem rede neural) excluídos por EC2; S0043 reclassificado como espacial+borda; grafia dos domínios padronizada em ordem alfabética | Recuperar parte da calibração perdida no desvio 6 e testar a robustez da extração nos campos que sustentam a RQ1.3 | Sim (2026-09-30) |
+| 18 | 2026-09-30 | Seção 10.2, S3, S4 | Segunda extração independente, sem acesso à primeira, dos 19 estudos de profundidade; regra de `avalia_interacao` revisada (ablação sobre presença ou ausência de dois domínios distintos) e campo `par_cruzado` adicionado; S1374 (ensemble de modelos prontos) e S0913 (pipeline sem rede neural) excluídos por EC2; S0043 reclassificado como espacial+borda; grafia dos domínios padronizada em ordem alfabética | Recuperar parte da calibração perdida no desvio 6 e testar a robustez da extração nos campos que sustentam a RQ1.3 | Sim (2026-09-30) |
 | 19 | 2026-09-30 | Seção 9, análise de sensibilidade | Corte "QA acima da mediana" substituído por QA = 6 e QA ≥ 5,5, calculados com as notas das duas extrações | A escala satura: 13 dos 17 estudos têm nota máxima, a mediana é 6 e o conjunto acima dela é vazio | Sim (2026-09-30) |
 
 **Os desvios 6, 7, 10, 11, 14, 15, 16 e 17 alteram o método, não a redação. Todos os desvios foram sancionados pelo orientador em 2026-09-30.**
@@ -586,7 +574,7 @@ As variantes mais restritivas da seção 4.3.2 também recuperam os quatro: a re
 | 7. Fase 2, EC2 e atribuição de camada | 919 → 795 mapeamento + 35 profundidade | Concluído |
 | 8. Obtenção de texto completo | 21 obtidos, 14 indisponíveis (EC6) | Concluído |
 | 9. Fase 3, leitura, QA e extração | 17 estudos extraídos, Tabela 3b | Concluído (desvios 11 e 18) |
-| 9b. Extração dupla, independente e cega | Kappa 0,65 (19 estudos), 0,70 (17) | Concluído (desvio 18) |
+| 9b. Segunda extração independente | Kappa 0,65 (19 estudos), 0,70 (17) | Concluído (desvio 18) |
 | 10. Fase 4, snowballing | 86 sementes → 905 candidatos → 628 no mapeamento | Concluído |
 | 11. Extração da camada de mapeamento (Tabela 3a) | 1.423 estudos caracterizados | Concluído (desvio 14) |
 | 12. Síntese S1 a S4 | Taxonomia, matriz de combinação, quadro de evidência | Concluído, `SINTESE_S3_S4.md` |
@@ -623,9 +611,9 @@ WOHLIN, C. Guidelines for snowballing in systematic literature studies and a rep
 
 ---
 
-## Apêndice A. Strings adaptadas às bases declaradas
+## Apêndice A. Strings adaptadas às bases comerciais
 
-Aplicáveis caso D8 seja revertida e a busca passe a ser executada manualmente nas três bases.
+Não executadas. Servem a uma eventual replicação da busca nas três bases comerciais, por execução manual autenticada.
 
 ### A.1 Restrição do ScienceDirect
 
