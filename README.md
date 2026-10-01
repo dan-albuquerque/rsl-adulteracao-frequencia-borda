@@ -86,4 +86,4 @@ A triagem, a extração e a síntese foram conduzidas pelo primeiro autor com ap
 
 ## Licença e citação
 
-A definir antes da publicação.
+Licença MIT, ver o arquivo `LICENSE`. Os metadados e resumos de estudos de terceiros, obtidos do OpenAlex, seguem a licença do OpenAlex (CC0) e os direitos dos respectivos autores.
