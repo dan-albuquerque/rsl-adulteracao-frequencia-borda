@@ -1,0 +1,18 @@
+{
+  "consultas": [
+    {
+      "consulta": "primaria_documento",
+      "filtro_submetido": "title_and_abstract.search:(\"image forgery\" OR \"image tampering\" OR \"image manipulation detection\" OR \"document forgery\" OR \"document tampering\" OR \"tampered text\" OR \"splicing detection\" OR \"copy-move\" OR \"image forensics\") AND (\"frequency\" OR \"discrete cosine transform\" OR \"DCT\" OR \"high-frequency\" OR \"edge attention\" OR \"two-stream\" OR \"dual-stream\"),from_publication_date:2020-01-01,to_publication_date:2026-12-31,type:article|review|conference-paper",
+      "retornados": 462,
+      "paginas": 3
+    },
+    {
+      "consulta": "secundaria_face",
+      "filtro_submetido": "title_and_abstract.search:(\"deepfake detection\" OR \"face forgery\") AND (\"frequency\" OR \"discrete cosine transform\" OR \"DCT\" OR \"high-frequency\" OR \"edge attention\" OR \"two-stream\" OR \"dual-stream\"),from_publication_date:2020-01-01,to_publication_date:2026-12-31,type:article|review|conference-paper",
+      "retornados": 714,
+      "paginas": 4
+    }
+  ],
+  "corpus_unico": 1154,
+  "sobreposicao_removida": 22
+}

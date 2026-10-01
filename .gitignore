@@ -1,0 +1,12 @@
+# Python
+__pycache__/
+*.pyc
+
+# Textos completos e PDFs dos estudos: protegidos por direito autoral, nunca versionar
+revisao_sistematica/dados/texto/
+revisao_sistematica/dados/pdfs/
+*.pdf
+!revisao_sistematica/relatorio_final/figuras/*.pdf
+
+# Segredos (a chave do OpenAlex vai só em variável de ambiente)
+.env

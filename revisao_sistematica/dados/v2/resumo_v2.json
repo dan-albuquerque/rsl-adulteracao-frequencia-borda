@@ -1,0 +1,13 @@
+{
+  "data": "2026-09-23",
+  "corpus_primario": 1154,
+  "fase1_incluidos": 919,
+  "ec2_fase2": 89,
+  "mapeamento_primario": 795,
+  "profundidade": 35,
+  "extracoes_no_escopo": 19,
+  "snowballing_candidatos": 905,
+  "snowballing_mapeamento": 628,
+  "snowballing_profundidade": 0,
+  "mapeamento_total": 1423
+}

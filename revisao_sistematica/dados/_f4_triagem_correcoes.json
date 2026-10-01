@@ -1,0 +1,6 @@
+{
+ "_nota": "Correcoes do revisor sobre os lotes de triagem por titulo. Sobrescrevem a decisao do triador. Cada uma com motivo.",
+ "N0774": ["EC4", "'An Overview on the Generation and Detection of...': overview esta listado como EC4 nas instrucoes"],
+ "N1841": ["EC4", "'Advancements in ... Techniques and Challenges': formula de estudo secundario"],
+ "N2179": ["EC4", "'Video Deepfake Detection: Challenges and Recent Trends': formula de survey"]
+}

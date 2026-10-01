@@ -1,0 +1,282 @@
+[
+ {
+  "id": "S0020",
+  "titulo": "FBI-Net: Frequency-Based Image Forgery Localization via Multitask Learning With Self-Attention",
+  "ano": "2022",
+  "dominios": "borda+frequencia",
+  "doi": "10.1109/access.2022.3182024",
+  "tem_extracao": true
+ },
+ {
+  "id": "S0043",
+  "titulo": "High Frequency Component Enhancement Network for Image Manipulation Detection",
+  "ano": "2024",
+  "dominios": "borda+frequencia",
+  "doi": "10.3390/electronics13020447",
+  "tem_extracao": true
+ },
+ {
+  "id": "S0059",
+  "titulo": "TBNet: A Two-Stream Boundary-Aware Network for Generic Image Manipulation Localization",
+  "ano": "2022",
+  "dominios": "borda+frequencia",
+  "doi": "10.1109/tkde.2022.3187091",
+  "tem_extracao": true
+ },
+ {
+  "id": "S0205",
+  "titulo": "MMFA-Net: Multi-Modal Feature Learning and Multi-Head Fuse Attention for Image Manipulation Detection and Localization",
+  "ano": "2024",
+  "dominios": "borda+frequencia",
+  "doi": "10.1109/icicml63543.2024.10957875",
+  "tem_extracao": false
+ },
+ {
+  "id": "S0225",
+  "titulo": "Multi-Scale Edge-Guided Image Forgery Detection via Improved Self-Supervision and Self-Adversarial Training",
+  "ano": "2025",
+  "dominios": "borda+frequencia",
+  "doi": "10.3390/electronics14091877",
+  "tem_extracao": true
+ },
+ {
+  "id": "S0231",
+  "titulo": "AMSEANet: An Edge-Guided Adaptive Multi-Scale Network for Image Splicing Detection and Localization",
+  "ano": "2025",
+  "dominios": "borda+frequencia+ruido",
+  "doi": "10.3390/s25206494",
+  "tem_extracao": true
+ },
+ {
+  "id": "S0272",
+  "titulo": "A Multi-Path Inpainting Forensics Network Based on Frequency Attention and Boundary Guidance",
+  "ano": "2023",
+  "dominios": "borda+frequencia",
+  "doi": "10.3390/electronics12143192",
+  "tem_extracao": true
+ },
+ {
+  "id": "S0280",
+  "titulo": "Effective image forgery detection via high-frequency reconstruction and edge guidance",
+  "ano": "2025",
+  "dominios": "borda+frequencia",
+  "doi": "10.1117/1.jei.34.6.063037",
+  "tem_extracao": true
+ },
+ {
+  "id": "S0293",
+  "titulo": "Robust Estimation of Upscaling Factor on Double JPEG Compressed Images",
+  "ano": "2021",
+  "dominios": "borda+frequencia",
+  "doi": "10.1109/tcyb.2021.3069999",
+  "tem_extracao": false
+ },
+ {
+  "id": "S0334",
+  "titulo": "Frequency-spatial feature integration with boundary-aware learning for image tampering detection",
+  "ano": "2025",
+  "dominios": "borda+frequencia",
+  "doi": "10.1007/s11760-025-05003-9",
+  "tem_extracao": true
+ },
+ {
+  "id": "S0357",
+  "titulo": "Image Manipulation Detection and Classification Using SIFT and SURF with Support Vector Machine Classifier",
+  "ano": "2023",
+  "dominios": "borda+frequencia+ruido",
+  "doi": "10.1109/icmnwc60182.2023.10435920",
+  "tem_extracao": false
+ },
+ {
+  "id": "S0376",
+  "titulo": "WSDNet: A Dual-Branch Wavelet-Structured Network for Image Forgery Detection",
+  "ano": "2025",
+  "dominios": "borda+frequencia",
+  "doi": "10.1109/trustcom66490.2025.00328",
+  "tem_extracao": false
+ },
+ {
+  "id": "S0359",
+  "titulo": "WMSC-NET: a WALVE-CONV multiscale network for image forgery detection",
+  "ano": "2025",
+  "dominios": "borda+frequencia",
+  "doi": "10.1117/12.3087249",
+  "tem_extracao": false
+ },
+ {
+  "id": "S0404",
+  "titulo": "Foreground–Edge Collaborative-Driven Network for Remote Sensing Image Forgery Localization",
+  "ano": "2026",
+  "dominios": "borda+frequencia",
+  "doi": "10.1109/tgrs.2026.3659253",
+  "tem_extracao": true
+ },
+ {
+  "id": "S0422",
+  "titulo": "Copy-Move Forgery Detection Using Zernike Moments and Enhanced Patchmatch Post-Processing",
+  "ano": "2025",
+  "dominios": "borda+frequencia",
+  "doi": "10.1109/isctrkiye68593.2025.11224811",
+  "tem_extracao": false
+ },
+ {
+  "id": "S0424",
+  "titulo": "Learning to localize image forgery using boundary‐preserving mask R‐ CNN",
+  "ano": "2025",
+  "dominios": "borda+frequencia",
+  "doi": "10.1111/1556-4029.70203",
+  "tem_extracao": false
+ },
+ {
+  "id": "S0447",
+  "titulo": "Cross-Modal Attention Wavelet Subband Attention Model for the Remote Sensing Copy–Move Question Answering",
+  "ano": "2026",
+  "dominios": "borda+frequencia",
+  "doi": "10.1109/jstars.2026.3682900",
+  "tem_extracao": true
+ },
+ {
+  "id": "S0473",
+  "titulo": "Hybrid Multi-Feature Framework for Robust Digital Image Forgery Detection Using CNN Models",
+  "ano": "2026",
+  "dominios": "borda+frequencia+ruido",
+  "doi": "10.1109/icisessc68634.2026.11542802",
+  "tem_extracao": false
+ },
+ {
+  "id": "S0467",
+  "titulo": "M2sformer: Multi-Spectral and Multi-Scale Attention With Edge-Aware Difficulty Guidance for Image Forgery Localization",
+  "ano": "2025",
+  "dominios": "borda+frequencia",
+  "doi": "10.1109/iccv51701.2025.01478",
+  "tem_extracao": true
+ },
+ {
+  "id": "S0508",
+  "titulo": "Generic Image Manipulation Localization Based on Boundary Artifact Search and Frequency Domain Artifact Mining",
+  "ano": "2024",
+  "dominios": "borda+frequencia",
+  "doi": "10.1109/isctis63324.2024.10699182",
+  "tem_extracao": false
+ },
+ {
+  "id": "S0509",
+  "titulo": "EF-Former: A Robust Image Manipulation Localization Network with Coordinate-Aware Encoding and Frequency Enhancement",
+  "ano": "2026",
+  "dominios": "borda+frequencia",
+  "doi": "10.23919/dapic.2026.00080",
+  "tem_extracao": false
+ },
+ {
+  "id": "S0543",
+  "titulo": "ALL-IN-ONE: Divide-and-Conquer Strategy for Multi-Manipulation Image Classification and Localization",
+  "ano": "2025",
+  "dominios": "borda+frequencia",
+  "doi": "10.1109/tcsvt.2025.3603579",
+  "tem_extracao": false
+ },
+ {
+  "id": "S0689",
+  "titulo": "SFIAD: Deepfake detection through spatial-frequency feature integration and dynamic margin optimization",
+  "ano": "2025",
+  "dominios": "borda+frequencia",
+  "doi": "10.1007/s10462-025-11225-7",
+  "tem_extracao": true
+ },
+ {
+  "id": "S0795",
+  "titulo": "Local similarity anomaly for general face forgery detection",
+  "ano": "2023",
+  "dominios": "borda+frequencia+ruido",
+  "doi": "10.11834/jig.221006",
+  "tem_extracao": true
+ },
+ {
+  "id": "S0876",
+  "titulo": "TSFF-Net: A deep fake video detection model based on two-stream feature domain fusion",
+  "ano": "2024",
+  "dominios": "borda+frequencia",
+  "doi": "10.1371/journal.pone.0311366",
+  "tem_extracao": true
+ },
+ {
+  "id": "S0889",
+  "titulo": "Seeing Through the Blur: Unlocking Defocus Maps for Deepfake Detection",
+  "ano": "2025",
+  "dominios": "borda+frequencia",
+  "doi": "10.1145/3746252.3761260",
+  "tem_extracao": true
+ },
+ {
+  "id": "S0913",
+  "titulo": "WaveDIF: Wavelet Sub-Band based Deepfake Identification in Frequency Domain",
+  "ano": "2025",
+  "dominios": "borda+frequencia",
+  "doi": "10.1109/cvprw67362.2025.00627",
+  "tem_extracao": true
+ },
+ {
+  "id": "S1030",
+  "titulo": "TriFusionFakeGuard: A Multi-Modal Deepfake Detection Framework with Landmark, Frequency, and RGB Fusion",
+  "ano": "2025",
+  "dominios": "borda+frequencia+ruido",
+  "doi": "10.1109/icecit67774.2025.11451099",
+  "tem_extracao": false
+ },
+ {
+  "id": "S1095",
+  "titulo": "Deepfake Detection via Frequency-Aware Vision Transformer and Bidirectional Cross-Attention Fusion with Post-Processing Robustness",
+  "ano": "2026",
+  "dominios": "borda+frequencia+ruido",
+  "doi": "10.3390/info17090819",
+  "tem_extracao": true
+ },
+ {
+  "id": "S1092",
+  "titulo": "Contourlet-Mamba: Towards generalizable deepfake detection via multi-directional frequency fusion and long-range spatial modeling",
+  "ano": "2026",
+  "dominios": "borda+frequencia",
+  "doi": "10.1016/j.patcog.2026.114614",
+  "tem_extracao": false
+ },
+ {
+  "id": "S1124",
+  "titulo": "Enhanced Deepfake Detection via Boundary Discrepancies and Compression Artifacts in Densenet Architecture",
+  "ano": "2026",
+  "dominios": "borda+frequencia",
+  "doi": "10.1109/ic3ecsbhi67834.2026.11469068",
+  "tem_extracao": false
+ },
+ {
+  "id": "S1118",
+  "titulo": "Multi-Feature Collaborative Confidence-Aware Method for Deepfake Detection and Localization",
+  "ano": "2026",
+  "dominios": "borda+frequencia",
+  "doi": "",
+  "tem_extracao": true
+ },
+ {
+  "id": "S1258",
+  "titulo": "Dual stream collaborative deep forgery face image detection network based on CNN and ViT hybrid model",
+  "ano": "2025",
+  "dominios": "borda+frequencia+ruido",
+  "doi": "10.1109/aipcvt67868.2025.11405624",
+  "tem_extracao": false
+ },
+ {
+  "id": "S1256",
+  "titulo": "Signal-Processing-Based Multimodal Deepfake Detection: AUnified Framework for Image and Audio Forensics Without Deep Learning Infrastructure",
+  "ano": "2026",
+  "dominios": "borda+frequencia",
+  "doi": "10.5281/zenodo.19651400",
+  "tem_extracao": false
+ },
+ {
+  "id": "S1374",
+  "titulo": "Deepfakebuster: a confidence-calibrated adaptive ensemble framework for robust Deepfake image detection",
+  "ano": "2026",
+  "dominios": "borda+frequencia+ruido",
+  "doi": "10.1038/s41598-026-61247-6",
+  "tem_extracao": true
+ }
+]
